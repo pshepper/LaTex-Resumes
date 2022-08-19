@@ -4,4 +4,4 @@ Credit to [Saad Quadri](https://github.com/saadq) I am taking some of the LaTeX 
 
 | Title | Picture |
 |------|-----------|
-| Bold  Bar | <image src = "Bold&Bars.png" width="300px" height="400px"></image> |
+| Bold  Bar | <image src = "Bold&Bars/BnB.png" width="300px" height="400px"></image> |
