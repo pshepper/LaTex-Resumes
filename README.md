@@ -2,4 +2,4 @@
 Collection of Resumes built using LaTex.
 
 | Title | Picture |
-| Bold & Bar | ![BoldnBars](Bold&Bars.png) |
+| Bold & Bar | <image src = "Bold&Bars.png" width="50px" height="50px"></image> |
