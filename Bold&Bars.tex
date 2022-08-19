@@ -1,0 +1,177 @@
+\documentclass[fontsize=11pt]{article}
+    \usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[svgnames]{xcolor}  % Colours by their 'svgnames'
+\usepackage[margin=0.75in]{geometry}
+  \textheight=700px
+\usepackage{url}
+\usepackage{lmodern} % Allow arbitrary font sizes
+\usepackage{textcomp}
+
+%% Define a new 'modern' style for the url package that will use a smaller font.
+\makeatletter
+\def\url@modernstyle{
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{}}}
+\makeatother
+\urlstyle{modern} %% And use the newly defined style.
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+\renewcommand{\familydefault}{\sfdefault}
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{                 % Change font of \section command
+  \usefont{OT1}{phv}{b}{n}%   % bch-b-n: CharterBT-Bold font
+  \sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\hyphenpenalty=10000
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}      % Box to align text
+\newcommand{\sepspace}{\vspace*{.8em}}   % Vertical space macro
+\newcommand{\skspace}{\vspace*{0.3em}}
+
+\newcommand{\MyName}[1]{ % Name
+    \Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+    \par \normalsize \normalfont}
+
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+    \large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+    \par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+    \noindent\hangindent=2em\hangafter=0 % Indentation
+    \parbox{\spacebox}{                  % Box to align text
+    \textit{#1}}                      % Entry name (birth, address, etc.)
+    \hspace{1.5em} #2 \par}              % Entry value
+
+\newcommand{\profile}[1]{
+    \noindent \normalsize {#1}
+}
+
+\newcommand{\SkillsEntry}[2]{                % Same as \PersonalEntry
+    \noindent\hangindent=0em\hangafter=0 % Indentation
+    \parbox{\spacebox}{                  % Box to align text
+    \mbox{\textbf{#1}}}                    % Entry name (birth, address, etc.)
+    \hspace{4em} #2 \par}              % Entry value
+
+\newcommand{\AwardsEntry}[2]{                % Same as \PersonalEntry
+    \noindent\hangindent=2em\hangafter=0 % Indentation
+    \parbox{\spacebox}{                  % Box to align text
+    \textit{#1}}                    % Entry name (birth, address, etc.)
+    \hspace{1.5em} #2 \par}              % Entry value
+
+\newcommand{\EducationEntry}[4]{
+    \noindent \textbf{#1} \normal {#4} \hfill      % Study
+    \colorbox{White}{
+      \parbox{8.5em}{
+      \hfill\color{Black}#2}} \par  % Duration
+    \noindent \textit{#3} \par        % School
+    %\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+    \normalsize \par}
+
+\newcommand{\WorkEntry}[4]{       % Same as \EducationEntry
+    \noindent \textbf{#1} \hfill      % Jobname
+    \colorbox{White}{%
+      \parbox{9em}{%
+      \hfill\color{Black}#2}} \par   % Duration
+        \noindent \textit{#3} \par        % Company
+    \noindent\hangindent=2em\hangafter=0 \small #4 % Description
+    \normalsize \par}
+
+\newcommand{\ProjectEntry}[4]{         % Similar to \EducationEntry
+    \noindent \textbf{#1} \noindent \textit{#3} \hfill {#2} \par
+    \noindent \small #4 % Description
+    \normalsize \par}
+
+\newcommand{\AwardEntry}[4]{         % Similar to \EducationEntry
+    \noindent \textbf{#1} \noindent \textit{#3} \hfill {#2} \par
+    \noindent \small #4 % Description
+    \normalsize \par}
+    \begin{document}
+
+\MyName{Patrick Shepper}
+\bigskip
+{\small \hfill patshepper@gmail.com | (267)-315-2228 | Philadelphia, PA | patshepper.com}
+%%% Profile
+%%%--------------------
+\NewPart{Profile}{}
+\profile
+{Self-motivated Computer Science student with a passion for software development. Experience with operating system programming and statistical analysis. Adaptable learner looking for work experience to further develop skills.}
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+\EducationEntry
+{BS Computer Science}
+{Sept 2019 - (Expected) Dec 2022}
+{The Pennsylvania State University, University Park, PA}
+{GPA: 3.55}
+%%% Work experience
+%%% ------------------------------------------------------------
+
+\NewPart{Work Experience}{}
+
+\WorkEntry
+{IT intern}
+{May 2021 - Aug 2021}
+{Elliott-Lewis, Philadelphia, PA}
+{\begin{itemize} \itemsep -1pt
+	\item Developed New Hire Application to ease company-wide and public onboarding process
+	\item Processed incoming data into automated processes
+	\end{itemize}}
+%%% Projects
+%%% ------------------------------------------------------------
+\NewPart{Projects}{}
+
+\ProjectEntry{JBOD Driver}{}
+{C, Emacs, Bash}
+{CMPSC 311 Final project. Implemented read/write functionality over fictitious drivers. Drives support caching and remote server connection.}
+\sepspace
+\ProjectEntry{Pipeline CPU}{}
+{Verilog}
+{CMPEN 331 Final Project. Created and tested a 5 stage CPU with forwarding functionality for better performance}
+\sepspace
+\ProjectEntry{Data Structure Library}{patshepper.com}
+{Python}
+{Python library containing data structures and related algorithms}
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills and Knowledge Areas}{}
+\SkillsEntry{Programming}{Python, Java, C, Bash, Unix Command Line tools, SQL, OOP}
+\skspace
+\SkillsEntry{Math Concepts}{Linear Regression, Linear Programming, Hypothesis Testing}
+\skspace
+\SkillsEntry{Operating Systems}{Memory Allocation, Concurrency, File System Architecture}
+\skspace
+\SkillsEntry{Network Stack}{TCP/UDP, IPV4, DNS, RDT}
+\skspace
+\SkillsEntry{Algorithm Design}{Run time analysis, Data Structures, Automata Theory}
+\skspace
+\SkillsEntry{Design}{Prototyping, Iteration}
+%%% Awards
+%%% ------------------------------------------------------------
+\NewPart{Activities}{}
+
+\AwardEntry{AlgoPSU}{}
+{Present}
+{Discuss computer science topics revolving around data structures to help prepare for technical interviews.}
+\sepspace
+\AwardEntry{Nittany AI Student Society}{}
+{Present}
+{Discuss real-world problems and solutions in the world of artificial intelligence in a collaborative setting.}
+\sepspace
+\AwardEntry{HackPSU}{}
+{2020}
+{Participated in HackPSU 2020 Hackathon. Attended seminars to learn about related topics and created a small showcase project.}
+\
+\end{document}
